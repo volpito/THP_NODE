@@ -29,7 +29,19 @@ const PageList = (argument) => {
           document.querySelector(".page-list .articles").innerHTML = articles;
         });
     };
-    fetchList(`https://api.rawg.io/api/games?page_size=9&key=4213f27351ba43b8a9f008de6de62a91`, cleanedArgument);
+    
+    let nbr = 9;
+    if (nbr === 9){
+      fetchList(`https://api.rawg.io/api/games?page_size=${nbr}&key=4213f27351ba43b8a9f008de6de62a91`, cleanedArgument);
+    };
+    
+    document.getElementById("moreBtn").addEventListener("click", function(){
+      if (nbr < 27 && nbr > 9){
+        nbr += 9;
+        console.log(nbr);
+        fetchList(`https://api.rawg.io/api/games?page_size=${nbr}&key=4213f27351ba43b8a9f008de6de62a91`, cleanedArgument);
+      }
+    });
   };
 
   const render = () => {

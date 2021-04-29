@@ -29,7 +29,22 @@ const Home = (argument) => {
           document.querySelector(".page-list .articles").innerHTML = articles;
         });
     };
-    fetchList(`https://api.rawg.io/api/games?dates=2021-01-01,2023-12-31&page_size=9&&ordering=-added&key=4213f27351ba43b8a9f008de6de62a91`, cleanedArgument);
+
+    const more = () => {
+      let nbr = 9;
+      document.getElementById("moreBtn").addEventListener("click", function(){
+        if (nbr < 27 && nbr >= 9){
+          nbr += 9;
+          console.log(nbr);
+          return(nbr);
+        }
+      })
+      fetchList(`https://api.rawg.io/api/games?dates=2021-01-01,2023-12-31&page_size=${nbr}&&ordering=-added&key=4213f27351ba43b8a9f008de6de62a91`, cleanedArgument);
+      console.log(nbr);
+    };
+
+    more();
+
   };
 
   const render = () => {
