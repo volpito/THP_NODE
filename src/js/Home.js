@@ -1,12 +1,12 @@
 const Home = (argument) => {
   const preparePage = () => {
     let cleanedArgument = argument.replace(/\s+/g, "-");
-    let articles = "";
+    let articles = "<h1>New and Trending</h1><p>Based on player counts and release date</p>";
 
     const fetchList = (url, argument) => {
       let finalURL = url;
       if (argument) {
-        finalURL = `https://api.rawg.io/api/games?/page_size=9&search=${cleanedArgument}&key=4213f27351ba43b8a9f008de6de62a91`;
+        finalURL = `https://api.rawg.io/api/games?/page_size=9&search=${argument}&key=4213f27351ba43b8a9f008de6de62a91`;
         console.log(finalURL);
       }
 
@@ -28,7 +28,7 @@ const Home = (argument) => {
           document.querySelector(".page-list .articles").innerHTML = articles;
         });
     };
-    fetchList(`https://api.rawg.io/api/games?key=4213f27351ba43b8a9f008de6de62a91`);
+    fetchList(`https://api.rawg.io/api/games?dates=2021-01-01,2023-12-31&ordering=-added&key=4213f27351ba43b8a9f008de6de62a91`, cleanedArgument);
   };
 
   const render = () => {
@@ -43,7 +43,6 @@ const Home = (argument) => {
 
   render();
 
-
   const searchGame = () => {
     document.getElementById("validate").addEventListener("click", function(e){
       e.preventDefault();
@@ -55,8 +54,6 @@ const Home = (argument) => {
       Home(arg);
     })};
     searchGame();
-  
-
 
 };
 

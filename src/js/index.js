@@ -19,3 +19,7 @@ const setRoute = () => {
 window.addEventListener("hashchange", () => setRoute());
 window.addEventListener("DOMContentLoaded", () => setRoute());
 
+
+document.getElementById("back").addEventListener("click", function(){
+  window.history.back();
+});

@@ -3,7 +3,7 @@ const PageDetail = (argument) => {
     let cleanedArgument = argument.replace(/\s+/g, "-");
 
     const fetchGame = (url, argument) => {
-      let finalURL = url;
+      let finalURL = url ;
 
       fetch(`${finalURL}`)
         .then((response) => response.json())

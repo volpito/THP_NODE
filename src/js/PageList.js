@@ -1,7 +1,7 @@
 const PageList = (argument) => {
   const preparePage = () => {
     let cleanedArgument = argument.replace(/\s+/g, "-");
-    let articles = "";
+    let articles = "<h1>Popular</h1><p>Based on player votes and ratings</p>";
 
     const fetchList = (url, argument) => {
       let finalURL = url;
@@ -20,6 +20,7 @@ const PageList = (argument) => {
                     <div class="card-body">
                       <h5 class="card-title">${article.name}</h5>
                       <p class="card-text">Release date : ${article.released}</p>
+                      <p class="card-text">Platforms : ${article.platforms.map(a => " " + a.platform.name)}</p>
                       <a href="#pagedetail/${article.id}" class="btn btn-dark">More</a>
                     </div>
                   </div>
@@ -28,7 +29,7 @@ const PageList = (argument) => {
           document.querySelector(".page-list .articles").innerHTML = articles;
         });
     };
-    fetchList(`https://api.rawg.io/api/games?key=4213f27351ba43b8a9f008de6de62a91`);
+    fetchList(`https://api.rawg.io/api/games?key=4213f27351ba43b8a9f008de6de62a91`, cleanedArgument);
   };
 
   const render = () => {
