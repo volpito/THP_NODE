@@ -1,0 +1,27 @@
+$color-blue: rgb(9, 0, 133);
+
+h1, h2, p, section, input{
+  color: white;
+}
+
+body {
+  background-color: rgb(0, 0, 0);
+}
+
+.card{
+  background-color: rgb(27, 27, 27);
+  display:inline-block;
+  margin: 2.5rem;
+  border: none;
+}
+/*
+@mixin mobile {
+  @media (max-width: $mobile-width) {
+    @content;
+  }
+}
+
+@include mobile {
+  background: red;
+}
+*/
